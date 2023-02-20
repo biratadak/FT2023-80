@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Assgnment 3</title>
+    <title>Assgnment 5</title>
     <link rel="stylesheet" href="../stylesheet/style.css" />
   </head>
 
@@ -11,10 +11,11 @@
     <div class="form-div">
       <form
         method="post"
-        action="http://php.nginx/Assignment 3/submit.php"
+        action="http://php.nginx/Assignment 5/submit.php"
         enctype="multipart/form-data"
       >
         <div class="top">
+          <!-- First Name section -->
           <div class="fd-col">
             <label for="fname"
               >First Name<span name="ferr" class="error"> * </span></label
@@ -26,6 +27,7 @@
               class="name"
             />
           </div>
+          <!-- Last Name section -->
           <div class="fd-col">
             <label for="lname"
               >Last Name<span name="lerr" class="error"> * </span></label
@@ -47,7 +49,30 @@
           />
           <!-- upload image file -->
           <input type="file" name="pic" id="pic" />
-          <textarea name="marks" id="marks" cols="1" rows="5" placeholder="Write marks of different subjects in the format, English|80. One subject in each line."></textarea>
+          <textarea
+            name="marks"
+            id="marks"
+            cols="1"
+            rows="5"
+            placeholder="Write marks of different subjects in the format, English|80. One subject in each line."
+          ></textarea>
+          <!-- Phone no field -->
+          <label for="phoneNo">Mobile No</label>
+          <input
+            type="text"
+            name="phoneNo"
+            id="phoneNo"
+            placeholder="+919876543210"
+          />
+          <!-- E-Mail Id field -->
+          <label for="mailId">E-Mail Id</label>
+          <input
+            type="text"
+            name="mailId"
+            id="mailId"
+            placeholder="abcd@anymail.com"
+          />
+          <!-- Submit button -->
           <input class="btn" type="submit" value="Submit" />
         </div>
       </form>
@@ -67,7 +92,7 @@
           }
         };
       }
-      // Function to live update the display field with data from given name field
+      // Function to live update the display field with data from given name field.
       function liveUpdate(fieldName) {
         document.getElementsByName(fieldName)[0].onkeyup = function () {
           document.querySelector("#display").value = document
@@ -79,12 +104,12 @@
             );
         };
       }
-      // To live update the fields
+      // To live update the fields.
       liveUpdate("fname");
       liveUpdate("lname");
-      // To check the fields only contains alphabets
+      // To check the fields only contains alphabets.
       allLetter("fname", "ferr");
       allLetter("lname", "lerr");
-    </script>
+    </script> 
   </body>
 </html>

@@ -3,15 +3,16 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Assgnment 3</title>
+    <title>Assgnment 1</title>
     <link rel="stylesheet" href="../stylesheet/style.css" />
   </head>
 
   <body>
     <div class="form-div">
+      <!-- <form method="post" action="?php echo $_SERVER["PHP_SELF"] ?>" enctype="multipart/form-data"> -->
       <form
         method="post"
-        action="http://php.nginx/Assignment 3/submit.php"
+        action="http://php.nginx/Assignment 1/submit.php"
         enctype="multipart/form-data"
       >
         <div class="top">
@@ -19,35 +20,18 @@
             <label for="fname"
               >First Name<span name="ferr" class="error"> * </span></label
             >
-            <input
-              type="text"
-              placeholder="Enter your First Name"
-              name="fname"
-              class="name"
-            />
+            <input type="text" name="fname" class="name" />
           </div>
           <div class="fd-col">
             <label for="lname"
               >Last Name<span name="lerr" class="error"> * </span></label
             >
-            <input
-              type="text"
-              placeholder="Enter your Last Name"
-              name="lname"
-              class="name"
-            /><br />
+            <input type="text" name="lname" class="name" /><br />
           </div>
         </div>
         <div class="bottom fd-col">
-          <input
-            type="text"
-            disabled
-            id="display"
-            placeholder="😁Your Full Name😁"
-          />
-          <!-- upload image file -->
-          <input type="file" name="pic" id="pic" />
-          <textarea name="marks" id="marks" cols="1" rows="5" placeholder="Write marks of different subjects in the format, English|80. One subject in each line."></textarea>
+          <input type="text" disabled id="display" value="Enter your name" />
+
           <input class="btn" type="submit" value="Submit" />
         </div>
       </form>
