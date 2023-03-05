@@ -74,3 +74,13 @@ GROUP BY c.employee_domain;
 -- /Q6  WAQ to list all employee id which has not been assigned employee code.
 SELECT * FROM employee_salary_table s
 WHERE  s.employee_code=NULL;
+
+
+
+
+SELECT * from employee_code_table;
+SELECT * from employee_salary_table;
+SELECT * from employee_details_table;
+ DELETE FROM employee_code_table WHERE employee_code="dsa";
+ DELETE FROM employee_salary_table WHERE employee_id>"RU125";
+ DELETE FROM employee_details_table WHERE employee_id>"RU125";
