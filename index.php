@@ -1,16 +1,10 @@
 <?php
 // Loaded all required libraries.
 require("../vendor/autoload.php");
-//Loading .env credentials.
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
-
-
 
 include("dbconnection.php");
 $db = new Database();
 $emp = $db->connect("assignment2");
-
 $res = $emp->query("select employee_id from employee_salary_table order by employee_id DESC LIMIT 1");
 $val = $res->fetch_assoc()['employee_id'];
 
@@ -19,6 +13,7 @@ if (isset($_POST['emp_code']) && isset($_POST['emp_cname']) && isset($_POST['emp
   $sql = 'INSERT INTO employee_code_table (employee_code,employee_code_name,employee_domain) values ("' . $_POST["emp_code"] . '","' . $_POST["emp_cname"] . '","' . $_POST['emp_dom'] . '")';
   $emp->query($sql);
 }
+
 
 // Data insertion for emp_salary_table
 if (isset($_POST['emp_salary']) && isset($_POST['emp_code']) && $_POST['emp_salary'] != "" && $_POST['emp_code'] != "") {
@@ -70,10 +65,15 @@ if (isset($_POST['emp_fname']) && isset($_POST['emp_lname']) && isset($_POST['em
     <input type="text" placeholder="100k" name="emp_salary">
 
     <label for="emp_percentile">Graduation Percentile:</label>
-    <input type="text" placeholder="100k" name="emp_gp">
+    <input type="text" placeholder="100%" name="emp_gp">
     <div>
-      <input type="submit" value="SUBMIT" name="sub_btn">
-      <input type="submit" value="Show Table" name="show_btn">
+      <input class="btn" type="submit" value="Queries" name="query_btn">
+      <input class="btn" type="submit" value='<?php if (isset($_POST['show_btn']))
+        echo "Close Table";
+      else
+        echo "Submit"; ?>' name="sub_btn">
+      <input class="btn" type="submit" value="Show Table" name="show_btn">
+
     </div>
 
 
@@ -150,7 +150,13 @@ if (isset($_POST['emp_fname']) && isset($_POST['emp_lname']) && isset($_POST['em
   </div>
   <!-- tables section ends-->
 
+  <!-- Queries section starts-->
+  <?php
+  if (isset($_POST['query_btn'])) {
+    header("Location:queries.php");
+  }
+  ?>
+  <!-- Queries section ends-->
+
 </body>
-
-
 </html>

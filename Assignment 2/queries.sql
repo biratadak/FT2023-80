@@ -64,23 +64,25 @@ JOIN employee_salary_table s
 ON c.employee_code=s.employee_code
 GROUP BY c.employee_domain;
 
--- /Q5  WAQ to list all employee_domain with sum of it's salary but dont include salaries which is less than 30k.
+-- /Q6  WAQ to list all employee_domain with sum of it's salary but dont include salaries which is less than 30k.
 SELECT c.employee_domain as "Domain",CONCAT(SUM(s.employee_salary),"k") as "Salary" FROM employee_code_table c
 JOIN employee_salary_table s
 ON c.employee_code=s.employee_code
 WHERE NOT s.employee_salary<"30k"
 GROUP BY c.employee_domain;
 
--- /Q6  WAQ to list all employee id which has not been assigned employee code.
+-- /Q7  WAQ to list all employee id which has not been assigned employee code.
 SELECT * FROM employee_salary_table s
 WHERE  s.employee_code=NULL;
 
 
 
+--FOR MANUAL DELETION
+-- SELECT * from employee_code_table;
+-- SELECT * from employee_salary_table;
+-- SELECT * from employee_details_table;
+--  DELETE FROM employee_code_table WHERE employee_code="cgfgfg";
+--  DELETE FROM employee_salary_table WHERE employee_id>"RU125";
+--  DELETE FROM employee_details_table WHERE employee_id>"RU125";
 
-SELECT * from employee_code_table;
-SELECT * from employee_salary_table;
-SELECT * from employee_details_table;
- DELETE FROM employee_code_table WHERE employee_code="";
- DELETE FROM employee_salary_table WHERE employee_id>"RU125";
- DELETE FROM employee_details_table WHERE employee_id>"RU125";
+
