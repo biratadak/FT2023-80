@@ -15,14 +15,14 @@ $res = $emp->query("select employee_id from employee_salary_table order by emplo
 $val = $res->fetch_assoc()['employee_id'];
 
 // Data insertion for emp_code_table
-if( $_POST['emp_code']!="" && $_POST['emp_cname']!="" && $_POST['emp_dom']!=""){
+if( isset($_POST['emp_code']) && isset($_POST['emp_cname']) && isset($_POST['emp_dom']) && $_POST['emp_code']!="" && $_POST['emp_cname']!="" && $_POST['emp_dom']!="" ){
     echo "inside code table if ";
     $sql='INSERT INTO employee_code_table (employee_code,employee_code_name,employee_domain) values ("'.$_POST["emp_code"].'","'.$_POST["emp_cname"].'","'.$_POST['emp_dom'].'")';
     $emp->query($sql);
 }
 
 // Data insertion for emp_salary_table
-if( $_POST['emp_salary']!="" && $_POST['emp_code']!=""){
+if( isset($_POST['emp_salary']) && isset($_POST['emp_code']) && $_POST['emp_salary']!="" && $_POST['emp_code']!="" ){
     echo "inside salary table if";
 
     $sql='INSERT INTO employee_salary_table (employee_id,employee_salary,employee_code) values ("'.(substr($val, 0, 2) . ((int) substr($val, 2) + 1)).'","'.$_POST["emp_salary"].'","'.$_POST['emp_code'].'")';
@@ -30,7 +30,7 @@ if( $_POST['emp_salary']!="" && $_POST['emp_code']!=""){
 }
 
 // Data insertion for emp_details_table
-if( $_POST['emp_fname']!="" && $_POST['emp_lname']!="" && $_POST['emp_gp']!=""){
+if(isset($_POST['emp_fname']) && isset($_POST['emp_lname']) && isset($_POST['emp_gp']) && $_POST['emp_fname']!="" && $_POST['emp_lname']!="" && $_POST['emp_gp']!=""){
     echo "inside details table if";
 
     $sql='INSERT INTO employee_details_table (employee_id,employee_first_name,employee_last_name,Graduation_percentile) values ("'.substr($val, 0, 2) .((int) substr($val, 2) + 1).'","'.$_POST["emp_fname"].'","'.$_POST['emp_lname'].'","'.$_POST['emp_gp'].'")';
